@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { MyServicesService } from '../shared/my-services.service';
 import { Router } from '@angular/router';
 // import { HttpClientModule } from '@angular/common/http';
@@ -30,6 +30,7 @@ import { MatTableModule } from '@angular/material/table';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { FooterComponent } from '../footer/footer.component';
 import { CommonModule } from '@angular/common';
+import { UserService } from '../shared/user.service';
 
 @Component({
   selector: 'app-home',
@@ -70,14 +71,32 @@ import { CommonModule } from '@angular/common';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(
-    private router: Router) {
+  service = inject(UserService);
+  router = inject(Router);
+  constructor() {
   }
 
-
+  userDetails: any;
   ngOnInit(): void {
+    // if (localStorage.getItem('token') != null) {
+    //   this.router.navigateByUrl('/home');
+    // }
     if (localStorage.getItem('token') != null) {
-      this.router.navigateByUrl('/home');
+
+      this.service.getUserProfile().subscribe(
+        res => {
+          this.userDetails = res;
+          console.log(this.userDetails);
+          if (this.userDetails.userRole == 'ADMIN') {
+            this.router.navigateByUrl('/dashboard');
+          }
+        },
+        err => {
+          console.log(err);
+        }
+
+      );
+
     }
   }
 }

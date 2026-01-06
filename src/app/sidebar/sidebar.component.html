@@ -16,7 +16,7 @@
       <mat-icon>dashboard</mat-icon>
       <span>Requester Dashboard</span>
     </button>
-    <button *ngIf="service.roleMatch(['FOURNISSEUR'])" [routerLink]="['/providerDashboard']" mat-button
+    <button *ngIf="service.roleMatch(['ADMIN'])" [routerLink]="['/providerDashboard']" mat-button
       class="menu-button">
       <mat-icon>dashboard</mat-icon>
       <span>Provider Dashboard</span>
@@ -35,7 +35,7 @@
       <mat-icon> message</mat-icon>
       <span>Messages</span>
     </button>
-    <button *ngIf="service.roleMatch(['DEMANDEUR'])" [routerLink]="['/Offres']" mat-button class="menu-button">
+    <button *ngIf="service.roleMatch(['ADMIN'])" [routerLink]="['/Offres']" mat-button class="menu-button">
       <mat-icon>local_offer</mat-icon>
       <span>Services</span>
     </button>
@@ -64,7 +64,7 @@
           </mat-panel-title>
 
         </mat-expansion-panel-header>
-        <button *ngIf="service.roleMatch(['DEMANDEUR'])" [routerLink]="['/globalEvents']" mat-button
+        <button *ngIf="service.roleMatch(['ADMIN'])" [routerLink]="['/globalEvents']" mat-button
           class="menu-button">
           <mat-icon>event_seat</mat-icon>
           <span>Current events</span>

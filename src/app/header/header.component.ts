@@ -34,7 +34,7 @@ import { FooterComponent } from '../footer/footer.component';
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css'],
-    standalone: true,
+  standalone: true,
   imports: [
     FormsModule,
     ReactiveFormsModule,
@@ -69,26 +69,26 @@ import { FooterComponent } from '../footer/footer.component';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor(private router:Router,private service:UserService) { }
+  constructor(private router: Router, private service: UserService) { }
   userDetails;
   ngOnInit(): void {
-    if(localStorage.getItem('token') != null){
+    if (localStorage.getItem('token') != null) {
 
       this.service.getUserProfile().subscribe(
-        res =>{
+        res => {
           this.userDetails = res;
         },
-        err =>{
+        err => {
           console.log(err);
         }
-  
+
       );
 
     }
-    
+
   }
 
-  onLogout(){
+  onLogout() {
     localStorage.removeItem('token');
     this.router.navigate(['/login']);
   }
