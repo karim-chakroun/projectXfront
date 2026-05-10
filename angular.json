@@ -20,6 +20,8 @@
             "outputPath": "dist/front-project",
             "index": "src/index.html",
             "browser": "src/main.ts",
+            "baseHref": "/FrontLeasing/",
+            "deployUrl": "/FrontLeasing/",
             "polyfills": [
               "zone.js"
             ],
@@ -33,6 +35,8 @@
             ],
             "styles": [
               "src/styles.scss",
+              "@angular/material/prebuilt-themes/indigo-pink.css",
+              "node_modules/material-icons/iconfont/material-icons.css",
               "node_modules/bootstrap/dist/css/bootstrap.min.css"
             ],
             "scripts": []

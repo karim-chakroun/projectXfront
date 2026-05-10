@@ -45,45 +45,45 @@ export class UserService {
       FullName: formModel.value.FullName,
       PhoneNumber: formModel.value.PhoneNumber,
       Password: formModel.value.Passwords.Password,
-      Role:formModel.value.Role,
-      adresse:"test"
+      Role: formModel.value.Role,
+      adresse: "test"
     };
     return this.http.post(this.BaseURI + '/ApplicationUser/Register', body);
   }
 
-  login(formData){
+  login(formData) {
     return this.http.post(this.BaseURI + '/ApplicationUser/Login', formData);
   }
 
-  getUserProfile(){
-    
-    return this.http.get(this.BaseURI+ '/UserProfile');
+  getUserProfile() {
+
+    return this.http.get(this.BaseURI + '/UserProfile');
   }
 
-  getUserById(idUser){
-    
-    return this.http.get(this.BaseURI+ '/UserProfile/'+idUser);
+  getUserById(idUser) {
+
+    return this.http.get(this.BaseURI + '/UserProfile/' + idUser);
   }
 
-  getUserByName(name){
-    return this.http.get(this.BaseURI+ '/UserProfile/GetUsersByUsername?username='+name);
+  getUserByName(name) {
+    return this.http.get(this.BaseURI + '/UserProfile/GetUsersByUsername?username=' + name);
 
   }
 
-  putUserImage(path){
+  putUserImage(path) {
     var body = {
-      image:path
+      image: path
     };
-    return this.http.put(this.BaseURI+ '/UserProfile',body);
+    return this.http.put(this.BaseURI + '/UserProfile', body);
   }
 
 
 
-  roleMatch(allowedRoles): boolean{
+  roleMatch(allowedRoles): boolean {
     var isMatch = false;
     var payLoad = JSON.parse(window.atob(localStorage.getItem('token').split('.')[1]));
     var userRole = payLoad.role;
-    allowedRoles.forEach(element =>{
+    allowedRoles.forEach(element => {
       if (userRole == element) {
         isMatch = true;
         return false;
@@ -94,19 +94,19 @@ export class UserService {
 
   // EditCandidat() {
   //   var body = {
-      
+
 
   //     userName: this.formModel.value.UserName,
   //     fullName: this.formModel.value.FullName,
   //     adresse: this.formModel.value.Adresse,
   //     aboutMe: this.formModel.value.AboutMe,
   //     birthday: this.formModel.value.Birthday,
-      
+
   //     email : this.formModel.value.Email,
 
   //     phoneNumber : this.formModel.value.PhoneNumber,
- 
-      
+
+
 
 
   //   };

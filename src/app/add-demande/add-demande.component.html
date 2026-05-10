@@ -1,0 +1,43 @@
+<div class="container">
+    <form [formGroup]="demandeForm" (ngSubmit)="submit()" class="demande-form">
+
+        <!-- Car Dropdown -->
+        <mat-form-field appearance="outline" class="w-100">
+            <mat-label>Voiture demandée</mat-label>
+            <mat-select formControlName="carId">
+                <mat-option *ngFor="let car of cars" [value]="car.id">
+                    {{car.brand}} {{ car.model }}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <!-- Name -->
+        <mat-form-field appearance="outline" class="w-100">
+            <mat-label>Nom</mat-label>
+            <input matInput formControlName="nom">
+        </mat-form-field>
+
+        <!-- Phone -->
+        <mat-form-field appearance="outline" class="w-100">
+            <mat-label>Téléphone</mat-label>
+            <input matInput formControlName="telephone">
+        </mat-form-field>
+
+        <!-- Region -->
+        <mat-form-field appearance="outline" class="w-100">
+            <mat-label>Région</mat-label>
+            <input matInput formControlName="region">
+        </mat-form-field>
+
+        <!-- Salary -->
+        <mat-form-field appearance="outline" class="w-100">
+            <mat-label>Salaire</mat-label>
+            <input matInput type="text" formControlName="salaire">
+        </mat-form-field>
+
+        <button mat-raised-button color="primary" class="w-20" [disabled]="loading">
+            Envoyer la demande
+        </button>
+
+    </form>
+</div>

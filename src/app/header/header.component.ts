@@ -87,6 +87,11 @@ export class HeaderComponent implements OnInit {
     }
 
   }
+    menuOpen = false;
+
+  toggleMenu() {
+    this.menuOpen = !this.menuOpen;
+  }
 
   onLogout() {
     localStorage.removeItem('token');

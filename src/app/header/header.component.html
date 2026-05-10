@@ -1,38 +1,50 @@
-<nav class="navbar navbar-expand-lg bg-body-tertiary">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#">
-      <h5><b> FIN<span class="planner">PLANNER</span> </b></h5>
+<nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm fixed-top">
+  <div class="container">
+    
+    <!-- Logo -->
+    <a class="navbar-brand fw-bold" routerLink="/home">
+      <h5 class="mb-0 title">HB<span class="leasing text-primary">Leasing</span></h5>
     </a>
+
+    <!-- Toggler for mobile -->
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll"
       aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
+
+    <!-- Navbar links -->
     <div class="collapse navbar-collapse" id="navbarScroll">
       <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" routerLink="/home">Home</a>
+          <a class="nav-link" routerLink="/home">Accueil</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" routerLink="/global-Events">Events</a>
-        </li>
-
-
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">About us</a>
+          <a class="nav-link" routerLink="/cars">Prix Leasing Tunisie</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Contact us</a>
+          <a class="nav-link" routerLink="/demande-leasing">Offre Leasing Personnalisée</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/cars">Vehicules</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/contact">Contact</a>
         </li>
       </ul>
 
-      @if (userDetails) {
-      <button mat-stroked-button color="primary" (click)="onLogout()" routerLink="/login" type="submit">Logout</button>
-      } @else {
-      <button mat-stroked-button color="primary" routerLink="/login" type="submit">Login</button>
-      }
-
+      <!-- User login/logout buttons -->
+      <div class="d-flex align-items-center gap-2">
+        <ng-container *ngIf="userDetails; else loginBtn">
+          <button mat-stroked-button color="primary" (click)="onLogout()">Logout</button>
+        </ng-container>
+        <ng-template #loginBtn>
+          <button mat-stroked-button color="primary" routerLink="/login">Login</button>
+        </ng-template>
+      </div>
     </div>
   </div>
 </nav>
+<br>
+<br>
 <br>
 <router-outlet></router-outlet>

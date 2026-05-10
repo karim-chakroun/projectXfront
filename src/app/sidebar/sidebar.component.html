@@ -2,7 +2,9 @@
   <button mat-button (click)="drawer.toggle()">
     <mat-icon>menu</mat-icon>
   </button>
-  <h4><b> FIN<span class="planner">PLANNER</span> </b></h4>
+  <a class="navbar-brand fw-bold" routerLink="/home">
+      <h5 class="mb-0 title">HB<span class="leasing text-primary">Leasing</span></h5>
+    </a>
   <mat-form-field appearance="fill" class="ms-auto">
     <mat-label>Search</mat-label>
     <input matInput placeholder="Search" [formControl]="searchName" (keyup.enter)="search()">
@@ -11,11 +13,6 @@
 
 <mat-sidenav-container fxLayout="column">
   <mat-sidenav class="mat-elevation-z8" #drawer mode="side" opened>
-    <button *ngIf="service.roleMatch(['DEMANDEUR'])" [routerLink]="['/requesterDashboard']" mat-button
-      class="menu-button">
-      <mat-icon>dashboard</mat-icon>
-      <span>Requester Dashboard</span>
-    </button>
     <button *ngIf="service.roleMatch(['ADMIN'])" [routerLink]="['/providerDashboard']" mat-button
       class="menu-button">
       <mat-icon>dashboard</mat-icon>
@@ -27,17 +24,10 @@
       <mat-icon>home</mat-icon>
       <span>Home</span>
     </button>
-    <button [routerLink]="['/profile']" mat-button class="menu-button">
-      <mat-icon>account_circle</mat-icon>
-      <span>Profil</span>
-    </button>
-    <button [routerLink]="['/messages']" mat-button class="menu-button">
-      <mat-icon> message</mat-icon>
-      <span>Messages</span>
-    </button>
-    <button *ngIf="service.roleMatch(['ADMIN'])" [routerLink]="['/Offres']" mat-button class="menu-button">
+   
+    <button *ngIf="service.roleMatch(['ADMIN'])" [routerLink]="['/cars-data']" mat-button class="menu-button">
       <mat-icon>local_offer</mat-icon>
-      <span>Services</span>
+      <span>Vehicules</span>
     </button>
     <button *ngIf="service.roleMatch(['FOURNISSEUR'])" [routerLink]="['/myservices']" mat-button class="menu-button">
       <mat-icon>local_offer</mat-icon>

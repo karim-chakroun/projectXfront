@@ -1,0 +1,23 @@
+.full-width-table {
+  width: 100%;
+}
+
+.status {
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-weight: 500;
+  font-size: 13px;
+}
+
+.available {
+  background-color: #e8f5e9;
+  color: #2e7d32;
+}
+
+.not-available {
+  background-color: #ffebee;
+  color: #c62828;
+}
+table{
+    margin-top: 20px;
+}
