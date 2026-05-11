@@ -7,8 +7,11 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { CarsComponent } from './cars/cars.component';
 import { AddDemandeComponent } from './add-demande/add-demande.component';
 import { CarsDataComponent } from './cars-data/cars-data.component';
+import { ContactComponent } from './contact/contact.component';
+import { AboutComponent } from './about/about.component';
 
 export const routes: Routes = [
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
   {
     path: 'home',
@@ -29,6 +32,20 @@ export const routes: Routes = [
     component: HeaderComponent,
     children: [
       { path: '', component: AddDemandeComponent }
+    ]
+  },
+  {
+    path: 'contact',
+    component: HeaderComponent,
+    children: [
+      { path: '', component: ContactComponent }
+    ]
+  },
+  {
+    path: 'about',
+    component: HeaderComponent,
+    children: [
+      { path: '', component: AboutComponent }
     ]
   },
   {

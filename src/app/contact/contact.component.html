@@ -1,0 +1,119 @@
+<!-- Contact Hero -->
+<section class="contact-hero">
+  <div class="container text-center">
+    <span class="section-badge">Contactez-nous</span>
+    <h1>Nous sommes à votre service</h1>
+    <p>N'hésitez pas à nous contacter pour toute question concernant le leasing automobile en Tunisie.</p>
+  </div>
+</section>
+
+<!-- Contact Content -->
+<section class="contact-content">
+  <div class="container">
+    <div class="row g-4">
+      <!-- Contact Info Cards -->
+      <div class="col-lg-5">
+        <div class="info-cards">
+          <div class="info-card">
+            <div class="info-icon"><i class="fas fa-map-marker-alt"></i></div>
+            <div>
+              <h6>Notre Adresse</h6>
+              <p>Rue de la Liberté, Tunis 1000, Tunisie</p>
+            </div>
+          </div>
+          <div class="info-card">
+            <div class="info-icon phone"><i class="fas fa-phone-alt"></i></div>
+            <div>
+              <h6>Téléphone</h6>
+              <p>+216 12 345 678</p>
+              <p>+216 98 765 432</p>
+            </div>
+          </div>
+          <div class="info-card">
+            <div class="info-icon email"><i class="fas fa-envelope"></i></div>
+            <div>
+              <h6>Email</h6>
+              <p>contact&#64;hbleasing.tn</p>
+              <p>support&#64;hbleasing.tn</p>
+            </div>
+          </div>
+          <div class="info-card">
+            <div class="info-icon clock"><i class="fas fa-clock"></i></div>
+            <div>
+              <h6>Horaires d'ouverture</h6>
+              <p>Lundi - Vendredi : 08h00 - 18h00</p>
+              <p>Samedi : 08h00 - 13h00</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Social Links -->
+        <div class="contact-social">
+          <h6>Suivez-nous</h6>
+          <div class="social-icons">
+            <a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.linkedin.com" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://wa.me/21612345678" target="_blank"><i class="fab fa-whatsapp"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Contact Form -->
+      <div class="col-lg-7">
+        <div class="contact-form-card">
+          <h3>Envoyez-nous un message</h3>
+          <p class="form-subtitle">Remplissez le formulaire ci-dessous et nous vous répondrons dans les plus brefs délais.</p>
+
+          <form #contactFormRef="ngForm" (ngSubmit)="onSubmit()">
+            <div class="row g-3">
+              <div class="col-md-6">
+                <mat-form-field appearance="outline" class="w-100">
+                  <mat-label>Nom complet</mat-label>
+                  <input matInput name="nom" [(ngModel)]="contactForm.nom" required>
+                </mat-form-field>
+              </div>
+              <div class="col-md-6">
+                <mat-form-field appearance="outline" class="w-100">
+                  <mat-label>Email</mat-label>
+                  <input matInput type="email" name="email" [(ngModel)]="contactForm.email" required>
+                </mat-form-field>
+              </div>
+              <div class="col-md-6">
+                <mat-form-field appearance="outline" class="w-100">
+                  <mat-label>Téléphone</mat-label>
+                  <input matInput name="telephone" [(ngModel)]="contactForm.telephone">
+                </mat-form-field>
+              </div>
+              <div class="col-md-6">
+                <mat-form-field appearance="outline" class="w-100">
+                  <mat-label>Sujet</mat-label>
+                  <mat-select name="sujet" [(ngModel)]="contactForm.sujet" required>
+                    <mat-option value="leasing">Demande de Leasing</mat-option>
+                    <mat-option value="info">Demande d'information</mat-option>
+                    <mat-option value="reclamation">Réclamation</mat-option>
+                    <mat-option value="autre">Autre</mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </div>
+              <div class="col-12">
+                <mat-form-field appearance="outline" class="w-100">
+                  <mat-label>Votre message</mat-label>
+                  <textarea matInput name="message" [(ngModel)]="contactForm.message" rows="5" required></textarea>
+                </mat-form-field>
+              </div>
+              <div class="col-12">
+                <button type="submit" class="btn-primary-custom btn-lg-custom" [disabled]="contactFormRef.invalid || loading">
+                  <i class="fas fa-paper-plane"></i>
+                  {{ loading ? 'Envoi en cours...' : 'Envoyer le message' }}
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<app-footer></app-footer>

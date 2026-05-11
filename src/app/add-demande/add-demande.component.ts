@@ -8,6 +8,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { FooterComponent } from '../footer/footer.component';
 
 @Component({
   selector: 'app-add-demande',
@@ -16,8 +18,10 @@ import { MatSelectModule } from '@angular/material/select';
     MatInputModule,
     MatSelectModule,
     MatButtonModule,
+    MatCheckboxModule,
     ReactiveFormsModule,
     CommonModule,
+    FooterComponent,
   ],
   templateUrl: './add-demande.component.html',
   styleUrl: './add-demande.component.scss'

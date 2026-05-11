@@ -29,49 +29,17 @@
       <mat-icon>local_offer</mat-icon>
       <span>Vehicules</span>
     </button>
-    <button *ngIf="service.roleMatch(['FOURNISSEUR'])" [routerLink]="['/myservices']" mat-button class="menu-button">
-      <mat-icon>local_offer</mat-icon>
-      <span>My Services</span>
+    <button *ngIf="service.roleMatch(['ADMIN'])" [routerLink]="['/demandes-admin']" mat-button class="menu-button">
+      <mat-icon>assignment</mat-icon>
+      <span>Demandes</span>
     </button>
-    <button *ngIf="service.roleMatch(['FOURNISSEUR'])" [routerLink]="['/commands']" mat-button class="menu-button">
-      <mat-icon>border_color</mat-icon>
-      <span>Orders</span>
-    </button>
-    <button *ngIf="service.roleMatch(['ADMINISTRATEUR'])" [routerLink]="['/Personnels']" mat-button class="menu-button">
-      <mat-icon>group icon</mat-icon>
-      <span>Personnels</span>
-    </button>
-    <button *ngIf="service.roleMatch(['ADMINISTRATEUR'])" [routerLink]="['/Recruteurs']" mat-button class="menu-button">
-      <mat-icon>group icon</mat-icon>
-      <span>Recruteurs</span>
-    </button>
-    <mat-accordion *ngIf="service.roleMatch(['DEMANDEUR'])">
-      <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
-        <mat-expansion-panel-header>
-          <mat-panel-title>
-            <mat-icon>event</mat-icon>
-            <span>Events</span>
-          </mat-panel-title>
 
-        </mat-expansion-panel-header>
-        <button *ngIf="service.roleMatch(['ADMIN'])" [routerLink]="['/globalEvents']" mat-button
-          class="menu-button">
-          <mat-icon>event_seat</mat-icon>
-          <span>Current events</span>
-        </button>
-        <button *ngIf="service.roleMatch(['DEMANDEUR'])" [routerLink]="['/myevents']" mat-button class="menu-button">
-          <mat-icon>event_note</mat-icon>
-          <span>My events</span>
-        </button>
-      </mat-expansion-panel>
-    </mat-accordion>
-
-    <button [routerLink]="['/Candidatures']" mat-button class="menu-button">
+    <button [routerLink]="['/contact']" mat-button class="menu-button">
       <mat-icon>message</mat-icon>
       <span>Contact us</span>
     </button>
-    <button [routerLink]="['/Candidatures']" mat-button class="menu-button">
-      <mat-icon>contact_support</mat-icon>
+    <button [routerLink]="['/about']" mat-button class="menu-button">
+      <mat-icon>info</mat-icon>
       <span>About us</span>
     </button>
 

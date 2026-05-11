@@ -1,9 +1,8 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm fixed-top">
+<nav class="navbar navbar-expand-lg fixed-top">
   <div class="container">
-    
     <!-- Logo -->
-    <a class="navbar-brand fw-bold" routerLink="/home">
-      <h5 class="mb-0 title">HB<span class="leasing text-primary">Leasing</span></h5>
+    <a class="navbar-brand" routerLink="/home">
+      <span class="brand-text">HB<span class="brand-accent">Leasing</span></span>
     </a>
 
     <!-- Toggler for mobile -->
@@ -14,37 +13,40 @@
 
     <!-- Navbar links -->
     <div class="collapse navbar-collapse" id="navbarScroll">
-      <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+      <ul class="navbar-nav mx-auto my-2 my-lg-0">
         <li class="nav-item">
-          <a class="nav-link" routerLink="/home">Accueil</a>
+          <a class="nav-link" routerLink="/home" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Accueil</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/cars">Prix Leasing Tunisie</a>
+          <a class="nav-link" routerLink="/cars" routerLinkActive="active">Prix Leasing</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/demande-leasing">Offre Leasing Personnalisée</a>
+          <a class="nav-link" routerLink="/demande-leasing" routerLinkActive="active">Offre Personnalisée</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/cars">Vehicules</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/contact">Contact</a>
+          <a class="nav-link" routerLink="/contact" routerLinkActive="active">Contact</a>
         </li>
       </ul>
 
       <!-- User login/logout buttons -->
       <div class="d-flex align-items-center gap-2">
         <ng-container *ngIf="userDetails; else loginBtn">
-          <button mat-stroked-button color="primary" (click)="onLogout()">Logout</button>
+          <span class="nav-user-name">{{ userDetails.fullName || userDetails.userName }}</span>
+          <button class="btn-nav-outline" (click)="onLogout()">
+            <i class="fas fa-sign-out-alt"></i> Déconnexion
+          </button>
         </ng-container>
         <ng-template #loginBtn>
-          <button mat-stroked-button color="primary" routerLink="/login">Login</button>
+          <a routerLink="/login" class="btn-nav-outline">
+            <i class="fas fa-user"></i> Connexion
+          </a>
+          <a routerLink="/demande-leasing" class="btn-nav-primary">
+            <i class="fas fa-paper-plane"></i> Demande Gratuite
+          </a>
         </ng-template>
       </div>
     </div>
   </div>
 </nav>
-<br>
-<br>
-<br>
+<div class="nav-spacer"></div>
 <router-outlet></router-outlet>

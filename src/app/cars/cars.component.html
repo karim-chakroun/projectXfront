@@ -1,51 +1,64 @@
-<div class="container mt-4">
+<!-- Hero -->
+<section class="cars-hero">
+  <div class="container text-center">
+    <span class="section-badge">Catalogue</span>
+    <h1>Prix Leasing Tunisie</h1>
+    <p>Découvrez les prix des voitures neuves en Tunisie, au comptant et en leasing.</p>
+  </div>
+</section>
 
+<section class="cars-content">
+  <div class="container">
     <div class="row g-4">
-        @for (car of cars; track $index) {
-        <div class="col-lg-3 col-md-4 col-sm-6">
-            <mat-card class="car-card">
-                <!-- Image -->
-                <div class="car-image">
-                    <img [src]="createImgPath(car.imageUrl) || 'assets/no-car.png'" alt="car">
-                    <span class="status" [ngClass]="car.isAvailable ? 'available' : 'not-available'">
-                        {{ car.isAvailable ? 'Disponible' : 'Non disponible' }}
-                    </span>
-                </div>
-                <!-- Content -->
-                <mat-card-content>
-                    <h3 class="car-title">
-                        {{ car.brand }} {{ car.model }}
-                    </h3>
-
-                    <p class="year">{{ car.year }}</p>
-
-                    <div class="info">
-                        <span>{{ car.fuelType }}</span>
-                        <span>•</span>
-                        <span>{{ car.gearbox }}</span>
-                    </div>
-
-                    <div class="price">
-                        {{ car.monthlyPayment }} TND / mois
-                    </div>
-
-                    <div class="details">
-                        <span>Durée: {{ car.durationMonths }} mois</span>
-                        <span>Apport: {{ car.downPayment }} TND</span>
-                    </div>
-                </mat-card-content>
-
-                <!-- Actions -->
-                <mat-card-actions>
-                    <button mat-flat-button color="primary" [disabled]="!car.isAvailable">
-                        Demande de leasing
-                    </button>
-                </mat-card-actions>
-
-            </mat-card>
-
-        </div>
-        }
+      @for (car of cars; track $index) {
+      <div class="col-lg-3 col-md-4 col-sm-6">
+        <mat-card class="car-card">
+          <!-- Image -->
+          <div class="car-image">
+            <img [src]="createImgPath(car.imageUrl) || 'assets/no-car.png'" alt="car">
+            <span class="status" [ngClass]="car.isAvailable ? 'available' : 'not-available'">
+              {{ car.isAvailable ? 'Disponible' : 'Non disponible' }}
+            </span>
+          </div>
+          <!-- Content -->
+          <mat-card-content>
+            <h3 class="car-title">
+              {{ car.brand }} {{ car.model }}
+            </h3>
+            <p class="year">{{ car.year }}</p>
+            <div class="info">
+              <span>{{ car.fuelType }}</span>
+              <span>•</span>
+              <span>{{ car.gearbox }}</span>
+            </div>
+            <div class="price">
+              {{ car.monthlyPayment }} TND / mois
+            </div>
+            <div class="details">
+              <span>Durée: {{ car.durationMonths }} mois</span>
+              <span>Apport: {{ car.downPayment }} TND</span>
+            </div>
+          </mat-card-content>
+          <!-- Actions -->
+          <mat-card-actions>
+            <button mat-flat-button color="primary" [disabled]="!car.isAvailable" (click)="openDemande(car)">
+              <i class="fas fa-paper-plane"></i> Demande de leasing
+            </button>
+          </mat-card-actions>
+        </mat-card>
+      </div>
+      }
     </div>
 
-</div>
+    <!-- Empty state -->
+    @if (cars.length === 0) {
+    <div class="empty-state">
+      <i class="fas fa-car-side"></i>
+      <h4>Aucun véhicule disponible</h4>
+      <p>Revenez bientôt, notre catalogue est régulièrement mis à jour.</p>
+    </div>
+    }
+  </div>
+</section>
+
+<app-footer></app-footer>

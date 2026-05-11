@@ -1,0 +1,123 @@
+<div class="dialog-wrapper">
+  <h2 mat-dialog-title>
+    <mat-icon>description</mat-icon> Demande de Leasing
+  </h2>
+
+  <mat-dialog-content>
+    <!-- Selected car info -->
+    <div class="selected-car">
+      <div class="car-badge">
+        <i class="fas fa-car"></i>
+      </div>
+      <div>
+        <strong>{{ car.brand }} {{ car.model }}</strong>
+        <span class="car-detail">{{ car.year }} · {{ car.fuelType }} · {{ car.gearbox }}</span>
+        <span class="car-price">{{ car.monthlyPayment }} TND / mois</span>
+      </div>
+    </div>
+
+    <form [formGroup]="demandeForm">
+      <!-- Personal Info -->
+      <h5 class="section-title"><i class="fas fa-user"></i> Informations personnelles</h5>
+      <div class="row g-3">
+        <div class="col-md-6">
+          <mat-form-field appearance="outline" class="w-100">
+            <mat-label>Nom complet</mat-label>
+            <input matInput formControlName="nom">
+          </mat-form-field>
+        </div>
+        <div class="col-md-6">
+          <mat-form-field appearance="outline" class="w-100">
+            <mat-label>Téléphone</mat-label>
+            <input matInput formControlName="telephone">
+          </mat-form-field>
+        </div>
+        <div class="col-md-6">
+          <mat-form-field appearance="outline" class="w-100">
+            <mat-label>Région</mat-label>
+            <mat-select formControlName="region">
+              <mat-option value="Tunis">Tunis</mat-option>
+              <mat-option value="Ariana">Ariana</mat-option>
+              <mat-option value="Ben Arous">Ben Arous</mat-option>
+              <mat-option value="Manouba">Manouba</mat-option>
+              <mat-option value="Nabeul">Nabeul</mat-option>
+              <mat-option value="Zaghouan">Zaghouan</mat-option>
+              <mat-option value="Bizerte">Bizerte</mat-option>
+              <mat-option value="Béja">Béja</mat-option>
+              <mat-option value="Jendouba">Jendouba</mat-option>
+              <mat-option value="Le Kef">Le Kef</mat-option>
+              <mat-option value="Siliana">Siliana</mat-option>
+              <mat-option value="Sousse">Sousse</mat-option>
+              <mat-option value="Monastir">Monastir</mat-option>
+              <mat-option value="Mahdia">Mahdia</mat-option>
+              <mat-option value="Sfax">Sfax</mat-option>
+              <mat-option value="Kairouan">Kairouan</mat-option>
+              <mat-option value="Kasserine">Kasserine</mat-option>
+              <mat-option value="Sidi Bouzid">Sidi Bouzid</mat-option>
+              <mat-option value="Gabès">Gabès</mat-option>
+              <mat-option value="Médenine">Médenine</mat-option>
+              <mat-option value="Tataouine">Tataouine</mat-option>
+              <mat-option value="Gafsa">Gafsa</mat-option>
+              <mat-option value="Tozeur">Tozeur</mat-option>
+              <mat-option value="Kébili">Kébili</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div class="col-md-6">
+          <mat-form-field appearance="outline" class="w-100">
+            <mat-label>Métier / Profession</mat-label>
+            <input matInput formControlName="metier">
+          </mat-form-field>
+        </div>
+      </div>
+
+      <!-- Financial Info -->
+      <h5 class="section-title"><i class="fas fa-wallet"></i> Informations financières</h5>
+      <div class="row g-3">
+        <div class="col-md-6">
+          <mat-form-field appearance="outline" class="w-100">
+            <mat-label>Salaire net (TND)</mat-label>
+            <input matInput type="number" formControlName="salaire">
+          </mat-form-field>
+        </div>
+        <div class="col-md-6">
+          <mat-form-field appearance="outline" class="w-100">
+            <mat-label>Revenu moyen (TND)</mat-label>
+            <input matInput type="number" formControlName="revenuMoyen">
+          </mat-form-field>
+        </div>
+        <div class="col-md-6">
+          <mat-form-field appearance="outline" class="w-100">
+            <mat-label>Autre revenu (TND)</mat-label>
+            <input matInput type="number" formControlName="autreRevenu">
+          </mat-form-field>
+        </div>
+        <div class="col-md-6">
+          <mat-form-field appearance="outline" class="w-100">
+            <mat-label>Avance disponible (TND)</mat-label>
+            <input matInput type="number" formControlName="avanceDispo">
+          </mat-form-field>
+        </div>
+        <div class="col-md-6">
+          <mat-form-field appearance="outline" class="w-100">
+            <mat-label>Retenu par mois (TND)</mat-label>
+            <input matInput type="number" formControlName="retenuParMois">
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div class="checkbox-group">
+        <mat-checkbox formControlName="patente" color="primary">Je possède une patente</mat-checkbox>
+        <mat-checkbox formControlName="terreAgricole" color="primary">Je possède une terre agricole</mat-checkbox>
+      </div>
+    </form>
+  </mat-dialog-content>
+
+  <mat-dialog-actions align="end">
+    <button mat-button mat-dialog-close class="cancel-btn">Annuler</button>
+    <button class="btn-primary-custom submit-btn" [disabled]="demandeForm.invalid || loading" (click)="submit()">
+      <i class="fas fa-paper-plane"></i>
+      {{ loading ? 'Envoi...' : 'Envoyer la demande' }}
+    </button>
+  </mat-dialog-actions>
+</div>

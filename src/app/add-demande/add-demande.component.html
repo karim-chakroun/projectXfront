@@ -1,43 +1,140 @@
-<div class="container">
-    <form [formGroup]="demandeForm" (ngSubmit)="submit()" class="demande-form">
+<!-- Hero -->
+<section class="demande-hero">
+  <div class="container text-center">
+    <span class="section-badge">Offre Personnalisée</span>
+    <h1>Demande de Leasing</h1>
+    <p>Remplissez le formulaire ci-dessous et recevez votre offre de leasing personnalisée en moins de 24h.</p>
+  </div>
+</section>
 
-        <!-- Car Dropdown -->
-        <mat-form-field appearance="outline" class="w-100">
-            <mat-label>Voiture demandée</mat-label>
-            <mat-select formControlName="carId">
-                <mat-option *ngFor="let car of cars" [value]="car.id">
+<section class="demande-content">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-8">
+        <div class="form-card">
+          <form [formGroup]="demandeForm" (ngSubmit)="submit()">
+
+            <!-- Step 1: Vehicle -->
+            <div class="form-section">
+              <h4><i class="fas fa-car"></i> Véhicule souhaité</h4>
+              <mat-form-field appearance="outline" class="w-100">
+                <mat-label>Voiture demandée</mat-label>
+                <mat-select formControlName="carId">
+                  <mat-option *ngFor="let car of cars" [value]="car.id">
                     {{car.brand}} {{ car.model }}
-                </mat-option>
-            </mat-select>
-        </mat-form-field>
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
 
-        <!-- Name -->
-        <mat-form-field appearance="outline" class="w-100">
-            <mat-label>Nom</mat-label>
-            <input matInput formControlName="nom">
-        </mat-form-field>
+            <!-- Step 2: Personal Info -->
+            <div class="form-section">
+              <h4><i class="fas fa-user"></i> Informations personnelles</h4>
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <mat-form-field appearance="outline" class="w-100">
+                    <mat-label>Nom complet</mat-label>
+                    <input matInput formControlName="nom">
+                  </mat-form-field>
+                </div>
+                <div class="col-md-6">
+                  <mat-form-field appearance="outline" class="w-100">
+                    <mat-label>Téléphone</mat-label>
+                    <input matInput formControlName="telephone">
+                  </mat-form-field>
+                </div>
+                <div class="col-md-6">
+                  <mat-form-field appearance="outline" class="w-100">
+                    <mat-label>Région</mat-label>
+                    <mat-select formControlName="region">
+                      <mat-option value="Tunis">Tunis</mat-option>
+                      <mat-option value="Ariana">Ariana</mat-option>
+                      <mat-option value="Ben Arous">Ben Arous</mat-option>
+                      <mat-option value="Manouba">Manouba</mat-option>
+                      <mat-option value="Nabeul">Nabeul</mat-option>
+                      <mat-option value="Zaghouan">Zaghouan</mat-option>
+                      <mat-option value="Bizerte">Bizerte</mat-option>
+                      <mat-option value="Béja">Béja</mat-option>
+                      <mat-option value="Jendouba">Jendouba</mat-option>
+                      <mat-option value="Le Kef">Le Kef</mat-option>
+                      <mat-option value="Siliana">Siliana</mat-option>
+                      <mat-option value="Sousse">Sousse</mat-option>
+                      <mat-option value="Monastir">Monastir</mat-option>
+                      <mat-option value="Mahdia">Mahdia</mat-option>
+                      <mat-option value="Sfax">Sfax</mat-option>
+                      <mat-option value="Kairouan">Kairouan</mat-option>
+                      <mat-option value="Kasserine">Kasserine</mat-option>
+                      <mat-option value="Sidi Bouzid">Sidi Bouzid</mat-option>
+                      <mat-option value="Gabès">Gabès</mat-option>
+                      <mat-option value="Médenine">Médenine</mat-option>
+                      <mat-option value="Tataouine">Tataouine</mat-option>
+                      <mat-option value="Gafsa">Gafsa</mat-option>
+                      <mat-option value="Tozeur">Tozeur</mat-option>
+                      <mat-option value="Kébili">Kébili</mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                </div>
+                <div class="col-md-6">
+                  <mat-form-field appearance="outline" class="w-100">
+                    <mat-label>Métier / Profession</mat-label>
+                    <input matInput formControlName="metier">
+                  </mat-form-field>
+                </div>
+              </div>
+            </div>
 
-        <!-- Phone -->
-        <mat-form-field appearance="outline" class="w-100">
-            <mat-label>Téléphone</mat-label>
-            <input matInput formControlName="telephone">
-        </mat-form-field>
+            <!-- Step 3: Financial Info -->
+            <div class="form-section">
+              <h4><i class="fas fa-wallet"></i> Informations financières</h4>
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <mat-form-field appearance="outline" class="w-100">
+                    <mat-label>Salaire net (TND)</mat-label>
+                    <input matInput type="number" formControlName="salaire">
+                  </mat-form-field>
+                </div>
+                <div class="col-md-6">
+                  <mat-form-field appearance="outline" class="w-100">
+                    <mat-label>Revenu moyen (TND)</mat-label>
+                    <input matInput type="number" formControlName="revenuMoyen">
+                  </mat-form-field>
+                </div>
+                <div class="col-md-6">
+                  <mat-form-field appearance="outline" class="w-100">
+                    <mat-label>Autre revenu (TND)</mat-label>
+                    <input matInput type="number" formControlName="autreRevenu">
+                  </mat-form-field>
+                </div>
+                <div class="col-md-6">
+                  <mat-form-field appearance="outline" class="w-100">
+                    <mat-label>Avance disponible (TND)</mat-label>
+                    <input matInput type="number" formControlName="avanceDispo">
+                  </mat-form-field>
+                </div>
+                <div class="col-md-6">
+                  <mat-form-field appearance="outline" class="w-100">
+                    <mat-label>Retenu par mois (TND)</mat-label>
+                    <input matInput type="number" formControlName="retenuParMois">
+                  </mat-form-field>
+                </div>
+              </div>
 
-        <!-- Region -->
-        <mat-form-field appearance="outline" class="w-100">
-            <mat-label>Région</mat-label>
-            <input matInput formControlName="region">
-        </mat-form-field>
+              <div class="checkbox-group">
+                <mat-checkbox formControlName="patente" color="primary">Je possède une patente</mat-checkbox>
+                <mat-checkbox formControlName="terreAgricole" color="primary">Je possède une terre agricole</mat-checkbox>
+              </div>
+            </div>
 
-        <!-- Salary -->
-        <mat-form-field appearance="outline" class="w-100">
-            <mat-label>Salaire</mat-label>
-            <input matInput type="text" formControlName="salaire">
-        </mat-form-field>
+            <button type="submit" class="btn-primary-custom btn-lg-custom w-100" [disabled]="loading || demandeForm.invalid">
+              <i class="fas fa-paper-plane"></i>
+              {{ loading ? 'Envoi en cours...' : 'Envoyer la demande' }}
+            </button>
 
-        <button mat-raised-button color="primary" class="w-20" [disabled]="loading">
-            Envoyer la demande
-        </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-    </form>
-</div>
+<app-footer></app-footer>

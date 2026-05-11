@@ -1,209 +1,496 @@
+/* ===== HERO SECTION ===== */
+.hero-section {
+  position: relative;
+  background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 50%, #1a56db 100%);
+  padding: 0;
+  overflow: hidden;
+}
 
+.hero-overlay {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  z-index: 0;
+}
 
+.hero-section .container { position: relative; z-index: 1; }
 
-/* GLOBAL STYLES
--------------------------------------------------- */
-/* Padding below the footer and lighter body text */
+.min-vh-hero {
+  min-height: calc(100vh - 76px);
+  padding: 80px 0 60px;
+}
 
-body {
-    padding-top: 3rem;
-    padding-bottom: 3rem;
-    color: #5a5a5a;
-  }
-  
-  
-  /* CUSTOMIZE THE CAROUSEL
-  -------------------------------------------------- */
-  
-  /* Carousel base class */
-  .carousel {
-    margin-bottom: 4rem;
-  }
-  /* Since positioning the image, we need to help out the caption */
-  .carousel-caption {
-    bottom: 3rem;
-    z-index: 10;
-  }
-  
-  /* Declare heights because of positioning of img element */
-  .carousel-item {
-    height: 32rem;
-  }
-  .carousel-item > img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    min-width: 100%;
-    height: 32rem;
-  }
-  
-  
-  /* MARKETING CONTENT
-  -------------------------------------------------- */
-  
-  /* Center align the text within the three columns below the carousel */
-  .marketing .col-lg-4 {
-    margin-bottom: 1.5rem;
-    text-align: center;
-  }
-  .marketing h2 {
-    font-weight: 400;
-  }
-  /* rtl:begin:ignore */
-  .marketing .col-lg-4 p {
-    margin-right: .75rem;
-    margin-left: .75rem;
-  }
-  /* rtl:end:ignore */
-  
-  
-  /* Featurettes
-  ------------------------- */
-  
-  .featurette-divider {
-    margin: 5rem 0; /* Space out the Bootstrap <hr> more */
-  }
-  
-  /* Thin out the marketing headings */
-  .featurette-heading {
-    font-weight: 300;
-    line-height: 1;
-    /* rtl:remove */
-    letter-spacing: -.05rem;
-  }
-  
-  
-  /* RESPONSIVE CSS
-  -------------------------------------------------- */
-  
-  @media (min-width: 40em) {
-    /* Bump up size of carousel content */
-    .carousel-caption p {
-      margin-bottom: 1.25rem;
-      font-size: 1.25rem;
-      line-height: 1.4;
-    }
-  
-    .featurette-heading {
-      font-size: 50px;
-    }
-  }
-  
-  @media (min-width: 62em) {
-    .featurette-heading {
-      margin-top: 7rem;
-    }
-  }
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(245, 158, 11, 0.15);
+  color: #fbbf24;
+  padding: 8px 16px;
+  border-radius: 50px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+}
 
-  
+.hero-badge i { font-size: 0.75rem; }
 
-  /* GLOBAL STYLES
--------------------------------------------------- */
-/* Padding below the footer and lighter body text */
+.hero-title {
+  font-family: 'Poppins', sans-serif;
+  font-size: 3.2rem;
+  font-weight: 800;
+  color: #fff;
+  line-height: 1.15;
+  margin-bottom: 1.25rem;
+}
 
-body {
-    padding-top: 3rem;
-    padding-bottom: 3rem;
-    color: #5a5a5a;
-  }
-  
-  
-  /* CUSTOMIZE THE CAROUSEL
-  -------------------------------------------------- */
-  
-  /* Carousel base class */
-  .carousel {
-    margin-bottom: 4rem;
-  }
-  /* Since positioning the image, we need to help out the caption */
-  .carousel-caption {
-    bottom: 3rem;
-    z-index: 10;
-  }
-  
-  /* Declare heights because of positioning of img element */
-  .carousel-item {
-    height: 32rem;
-  }
-  .carousel-item > img {
-    position: absolute;
-    top: 0;
-    right: 0;
-    min-width: 100%;
-    height: 32rem;
-  }
-  
-  
-  /* MARKETING CONTENT
-  -------------------------------------------------- */
-  
-  /* Center align the text within the three columns below the carousel */
-  .marketing .col-lg-4 {
-    margin-bottom: 1.5rem;
-    text-align: center;
-  }
-  .marketing h2 {
-    font-weight: 400;
-  }
-  .marketing .col-lg-4 p {
-    margin-right: .75rem;
-    margin-left: .75rem;
-  }
-  
-  
-  /* Featurettes
-  ------------------------- */
-  
-  .featurette-divider {
-    margin: 5rem 0; /* Space out the Bootstrap <hr> more */
-  }
-  
-  /* Thin out the marketing headings */
-  .featurette-heading {
-    font-weight: 300;
-    line-height: 1;
-  }
-  
-  
-  /* RESPONSIVE CSS
-  -------------------------------------------------- */
-  
-  @media (min-width: 40em) {
-    /* Bump up size of carousel content */
-    .carousel-caption p {
-      margin-bottom: 1.25rem;
-      font-size: 1.25rem;
-      line-height: 1.4;
-    }
-  
-    .featurette-heading {
-      font-size: 50px;
-    }
-  }
-  
-  @media (min-width: 62em) {
-    .featurette-heading {
-      margin-top: 7rem;
-    }
-  }
+.hero-title .highlight {
+  background: linear-gradient(135deg, #60a5fa, #a78bfa);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
 
-  mat-card{
-    margin-top: 10px;
-  }
-  h2{
-    margin-left: 10px;
-  }
-  p{
-    margin-left: 10px;
-  }
-  
-  .container{
-    background:#fafafa ;
-  }
-  .featurette-heading{
-    margin-left: 30px;
-  }
-  .lead{
-    margin-left: 40px;
-  }
+.hero-subtitle {
+  font-size: 1.15rem;
+  color: #94a3b8;
+  line-height: 1.7;
+  margin-bottom: 2rem;
+  max-width: 540px;
+}
 
+.hero-actions {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 2.5rem;
+  flex-wrap: wrap;
+}
+
+.btn-outline-hero {
+  background: transparent;
+  color: #fff;
+  border: 2px solid rgba(255,255,255,0.3);
+  padding: 12px 28px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.3s;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+}
+
+.btn-outline-hero:hover {
+  border-color: #fff;
+  background: rgba(255,255,255,0.1);
+  color: #fff;
+}
+
+.hero-trust {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.trust-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #64748b;
+  font-size: 0.85rem;
+}
+
+.trust-item i { color: #10b981; font-size: 0.9rem; }
+
+.hero-visual { display: flex; justify-content: center; }
+
+.hero-card {
+  background: rgba(255,255,255,0.08);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 20px;
+  padding: 40px 32px;
+  text-align: center;
+  max-width: 340px;
+}
+
+.hero-card-icon {
+  width: 70px; height: 70px;
+  background: linear-gradient(135deg, #1a56db, #60a5fa);
+  border-radius: 16px;
+  display: flex; align-items: center; justify-content: center;
+  margin: 0 auto 20px;
+  font-size: 1.75rem;
+  color: #fff;
+}
+
+.hero-card h4 { color: #fff; margin-bottom: 8px; font-size: 1.3rem; }
+.hero-card p { color: #94a3b8; font-size: 0.9rem; margin-bottom: 24px; }
+
+.btn-sm-custom { padding: 10px 24px; font-size: 0.9rem; }
+
+/* ===== STATS BAR ===== */
+.stats-bar {
+  background: #fff;
+  padding: 40px 0;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+  position: relative;
+  z-index: 2;
+}
+
+.stat-item { padding: 16px 8px; }
+
+.stat-number {
+  font-family: 'Poppins', sans-serif;
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #1a56db;
+  line-height: 1;
+  margin-bottom: 4px;
+}
+
+.stat-label {
+  font-size: 0.9rem;
+  color: #64748b;
+  font-weight: 500;
+}
+
+/* ===== ABOUT SECTION ===== */
+.about-section {
+  padding: 100px 0;
+  background: #f8fafc;
+}
+
+.section-badge {
+  display: inline-block;
+  background: #e8effd;
+  color: #1a56db;
+  padding: 6px 16px;
+  border-radius: 50px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 1rem;
+}
+
+.section-title {
+  font-size: 2.25rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+  color: #0f172a;
+}
+
+.section-title .highlight,
+.highlight {
+  color: #1a56db;
+}
+
+.about-text {
+  font-size: 1rem;
+  color: #64748b;
+  line-height: 1.8;
+  margin-bottom: 2rem;
+}
+
+.about-image-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.about-img-card {
+  background: #fff;
+  border-radius: 16px;
+  padding: 32px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+  border-left: 4px solid #1a56db;
+  transition: transform 0.3s;
+}
+
+.about-img-card:hover { transform: translateY(-4px); }
+
+.about-img-card.secondary { border-left-color: #f59e0b; }
+
+.about-img-card i {
+  font-size: 2rem;
+  color: #1a56db;
+  margin-bottom: 12px;
+}
+
+.about-img-card.secondary i { color: #f59e0b; }
+
+.about-img-card h5 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.about-img-card p {
+  font-size: 0.9rem;
+  color: #64748b;
+  margin: 0;
+}
+
+.about-features { display: flex; flex-direction: column; gap: 20px; }
+
+.about-feature {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.feature-icon {
+  width: 48px; height: 48px;
+  min-width: 48px;
+  background: #e8effd;
+  border-radius: 12px;
+  display: flex; align-items: center; justify-content: center;
+  color: #1a56db;
+  font-size: 1.1rem;
+}
+
+.about-feature h6 {
+  font-size: 0.95rem;
+  font-weight: 700;
+  margin-bottom: 2px;
+  color: #0f172a;
+}
+
+.about-feature p {
+  font-size: 0.85rem;
+  color: #64748b;
+  margin: 0;
+}
+
+/* ===== SERVICES SECTION ===== */
+.services-section {
+  padding: 100px 0;
+  background: #fff;
+}
+
+.section-subtitle {
+  font-size: 1.05rem;
+  color: #64748b;
+  max-width: 560px;
+  margin: 0 auto 3rem;
+}
+
+.service-card {
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 36px 24px;
+  text-align: center;
+  transition: all 0.3s;
+  height: 100%;
+}
+
+.service-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+  border-color: transparent;
+}
+
+.service-icon {
+  width: 64px; height: 64px;
+  border-radius: 16px;
+  display: flex; align-items: center; justify-content: center;
+  margin: 0 auto 20px;
+  font-size: 1.5rem;
+}
+
+.service-icon.consulting { background: #dbeafe; color: #1d4ed8; }
+.service-icon.conseil { background: #fef3c7; color: #d97706; }
+.service-icon.info { background: #d1fae5; color: #059669; }
+.service-icon.assistance { background: #ede9fe; color: #7c3aed; }
+
+.service-card h5 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: #0f172a;
+}
+
+.service-card p {
+  font-size: 0.88rem;
+  color: #64748b;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* ===== WHY SECTION ===== */
+.why-section {
+  padding: 100px 0;
+  background: #f8fafc;
+}
+
+.why-text {
+  font-size: 1rem;
+  color: #64748b;
+  line-height: 1.8;
+  margin-bottom: 2rem;
+}
+
+.why-features { display: flex; flex-direction: column; gap: 20px; }
+
+.why-feature {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.why-icon {
+  width: 44px; height: 44px;
+  min-width: 44px;
+  background: #e8effd;
+  border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  color: #1a56db;
+  font-size: 1rem;
+}
+
+.why-feature h6 {
+  font-size: 0.95rem;
+  font-weight: 700;
+  margin-bottom: 2px;
+  color: #0f172a;
+}
+
+.why-feature p {
+  font-size: 0.85rem;
+  color: #64748b;
+  margin: 0;
+}
+
+.why-cards { display: flex; flex-direction: column; gap: 24px; }
+
+.why-card {
+  background: #fff;
+  border-radius: 16px;
+  padding: 32px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+  transition: transform 0.3s;
+}
+
+.why-card:hover { transform: translateY(-4px); }
+
+.why-card.accent {
+  background: linear-gradient(135deg, #1a56db, #3b82f6);
+}
+
+.why-card.accent h5,
+.why-card.accent p { color: #fff; }
+.why-card.accent p { opacity: 0.85; }
+.why-card.accent .why-card-icon { background: rgba(255,255,255,0.2); color: #fff; }
+.why-card.accent .why-link { color: #fbbf24; }
+
+.why-card-icon {
+  width: 56px; height: 56px;
+  background: #e8effd;
+  border-radius: 14px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.4rem;
+  color: #1a56db;
+  margin-bottom: 16px;
+}
+
+.why-card h5 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: #0f172a;
+}
+
+.why-card p {
+  font-size: 0.9rem;
+  color: #64748b;
+  margin-bottom: 16px;
+  line-height: 1.6;
+}
+
+.why-link {
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: #1a56db;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  text-decoration: none;
+  transition: gap 0.3s;
+}
+
+.why-link:hover { gap: 12px; }
+
+/* ===== CTA SECTION ===== */
+.cta-section {
+  padding: 80px 0;
+  background: linear-gradient(135deg, #0f172a 0%, #1a3660 50%, #1a56db 100%);
+  color: #fff;
+}
+
+.cta-section h2 {
+  font-size: 2.25rem;
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 1rem;
+}
+
+.cta-section p {
+  font-size: 1.1rem;
+  color: #94a3b8;
+  max-width: 560px;
+  margin: 0 auto 2rem;
+}
+
+.cta-actions {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.btn-lg-custom { padding: 14px 36px; font-size: 1rem; }
+
+.btn-outline-cta {
+  background: transparent;
+  color: #fff;
+  border: 2px solid rgba(255,255,255,0.3);
+  padding: 12px 28px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.3s;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+}
+
+.btn-outline-cta:hover {
+  border-color: #fff;
+  background: rgba(255,255,255,0.1);
+  color: #fff;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 991px) {
+  .hero-title { font-size: 2.25rem; }
+  .min-vh-hero { min-height: auto; padding: 60px 0 40px; }
+  .section-title { font-size: 1.75rem; }
+  .stat-number { font-size: 2rem; }
+  .about-section,
+  .services-section,
+  .why-section { padding: 60px 0; }
+}
+
+@media (max-width: 576px) {
+  .hero-title { font-size: 1.75rem; }
+  .hero-actions { flex-direction: column; }
+  .hero-trust { flex-direction: column; gap: 10px; }
+  .cta-section h2 { font-size: 1.5rem; }
+  .cta-actions { flex-direction: column; align-items: center; }
+}
